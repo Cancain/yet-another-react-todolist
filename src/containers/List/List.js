@@ -28,10 +28,16 @@ class List extends Component {
         }
     }
 
+    removeHandler = (index) => {
+        const items = this.state.listItems;
+        items.splice(index, 1);
+        this.setState({ listItems: items });
+    }
+
     render() {
 
         const itemHandler = this.state.listItems.map((item, index) =>
-            <Item text={item} key={index} />
+            <Item removeClicked={() => this.removeHandler(index)} text={item} key={index} />
         )
 
         return (

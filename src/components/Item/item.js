@@ -4,7 +4,7 @@ const item = (props) => {
     return (
         <div>
             <li>{props.text}</li>
-            <a>remove</a>
+            <p onClick={props.removeClicked}>remove</p>
         </div>
     )
 }
