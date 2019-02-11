@@ -10,10 +10,13 @@ class List extends Component {
         currentText: ''
     }
 
+    //Updates the state with the most recent text written in the input
     textChangedHandler = (event) => {
         this.setState({ currentText: event.target.value })
     }
 
+    //Copies the listItems from state 
+    //adds 
     addItemHandler = () => {
         const items = [...this.state.listItems];
         items.push(this.state.currentText)
