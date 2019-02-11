@@ -1,7 +1,12 @@
 import React from 'react';
 
 const input = (props) => {
-    return <p>testllalal</p>
+    return (
+        <div>
+            <input type='text' value={props.text} />
+            <button onClick={props.clicked}>Add</button>
+        </div>
+    );
 }
 
 export default input;
