@@ -2,7 +2,10 @@ import React from 'react';
 
 const item = (props) => {
     return (
-        <li>{props.text}</li>
+        <div>
+            <li>{props.text}</li>
+            <a>remove</a>
+        </div>
     )
 }
 

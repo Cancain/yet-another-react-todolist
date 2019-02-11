@@ -5,23 +5,45 @@ import Item from '../../components/Item/item';
 class List extends Component {
 
     state = {
-        listItems: [
-            { text: 'Item1' },
-            { text: 'Item2' },
-            { text: 'Item3' }
-        ]
+        listItems: [],
+        currentText: ''
     }
 
-    itemHandler = this.state.listItems.map((item, index) =>
-        <Item text={item.text} key={index} />
-    );
+    textChangedHandler = (event) => {
+        this.setState({ currentText: event.target.value })
+    }
+
+    addItemHandler = () => {
+        const items = [...this.state.listItems];
+        items.push(this.state.currentText)
+        this.setState({
+            listItems: items,
+            currentText: ''
+        });
+    }
+
+    keyDownHandler = (event) => {
+        if (event.key === 'Enter') {
+            this.addItemHandler();
+        }
+    }
 
     render() {
+
+        const itemHandler = this.state.listItems.map((item, index) =>
+            <Item text={item} key={index} />
+        )
+
         return (
             <div>
-                <Input />
+                <Input clicked={this.addItemHandler}
+                    textChange={(event) => this.textChangedHandler(event)}
+                    text={this.state.currentText}
+                    inputKeyDown={(event) => this.keyDownHandler(event)}
+                />
+
                 <ol>
-                    {this.itemHandler}
+                    {itemHandler}
                 </ol>
             </div>
         );
