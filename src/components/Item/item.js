@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
+import style from './item.module.css';
 
-const item = (props) => {
-    return (
-        <div>
-            <li>{props.text}</li>
-            <p onClick={props.removeClicked}>remove</p>
-        </div>
-    )
+class item extends Component {
+
+    state = {
+        finished: false
+    }
+
+    render() {
+
+        return (
+            <div className={style.containter}>
+                <li className={style.item}>{this.props.text}
+                    <i onClick={this.props.removeClicked} className={style.remove + " fas fa-ban"} ></i>
+                </li>
+
+            </div >
+        )
+    }
 }
 
 export default item;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../../components/Input/input';
 import Item from '../../components/Item/item';
+import style from './List.module.css';
 
 class List extends Component {
 
@@ -48,7 +49,7 @@ class List extends Component {
                     inputKeyDown={(event) => this.keyDownHandler(event)}
                 />
 
-                <ol>
+                <ol className={style.List}>
                     {itemHandler}
                 </ol>
             </div>

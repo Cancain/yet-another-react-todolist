@@ -1,0 +1,18 @@
+.containter {
+    text-align: center;
+    background: gray;
+    width: 20vw;
+    
+}
+
+.remove {
+    cursor: pointer;
+    display: inline;
+    margin: 0 0 0.5rem 0.5rem;
+    color: red;
+}
+
+.item {
+    margin: 0.2rem auto;
+    cursor: pointer;
+}
