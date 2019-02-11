@@ -1,5 +1,5 @@
 .containter {
-    text-align: center;
+    text-align: start;
     background: gray;
     width: 20vw;
     
@@ -7,12 +7,19 @@
 
 .remove {
     cursor: pointer;
-    display: inline;
-    margin: 0 0 0.5rem 0.5rem;
+    position: absolute;
+    margin: 0 0 0.5rem 0.2rem;
     color: red;
+    left: 60vw;
 }
 
 .item {
     margin: 0.2rem auto;
     cursor: pointer;
+}
+
+.itemFinished {
+    margin: 0.2rem auto;
+    cursor: pointer;
+    text-decoration: line-through;
 }

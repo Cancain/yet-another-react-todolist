@@ -15,23 +15,32 @@ class List extends Component {
         this.setState({ currentText: event.target.value })
     }
 
-    //Copies the listItems from state 
-    //adds 
+    //Copies the listItems from state and sets it to a local array
+    //Adds the currently written text and adds to the local array
+    //sets the local array to the listItems state
+    //Won't add text of empty  
     addItemHandler = () => {
-        const items = [...this.state.listItems];
-        items.push(this.state.currentText)
-        this.setState({
-            listItems: items,
-            currentText: ''
-        });
+        if (this.state.currentText) {
+            const items = [...this.state.listItems];
+            items.push(this.state.currentText)
+            this.setState({
+                listItems: items,
+                currentText: ''
+            });
+        }
+
     }
 
+    //When the enter key is pressed add the written text to state
     keyDownHandler = (event) => {
         if (event.key === 'Enter') {
             this.addItemHandler();
         }
     }
 
+    //Copies the listItems from state and sets it to a local array
+    //Removes the selected text and removes it from the local array
+    //sets the local array to the listItems state 
     removeHandler = (index) => {
         const items = this.state.listItems;
         items.splice(index, 1);
